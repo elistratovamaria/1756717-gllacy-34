@@ -30,10 +30,13 @@ const onEscKeyDown = () => {
 buttonContactsElement.addEventListener('click', onContactsButtonClick);
 
 const backgroundColors = ['#feafc3', '#69a9ff', '#fcc850'];
+const backgroundDecorColors = ['#ffcbd8', '#9fc8ff', '#fcdc92'];
+
 const slideElements = [...document.querySelectorAll('.slider-item')];
 const buttonPrevElement = document.querySelector('.slider-button-prev');
 const buttonNextElement = document.querySelector('.slider-button-next');
 const bulletElements = [...document.querySelectorAll('.slider-pagination-button')];
+const sliderDecorElements = [...document.querySelectorAll('.slider-decor')];
 const slidesAmount = slideElements.length;
 let currentIndex = 0;
 
@@ -42,6 +45,8 @@ const onSlideChange = (index) => {
   const activeBulletElement = document.querySelector('.slider-pagination-button.slider-pagination-button-current');
 
   document.body.style.backgroundColor = backgroundColors[index];
+  sliderDecorElements.forEach((sliderDecorElement) => sliderDecorElement.style.backgroundColor = backgroundDecorColors[index]);
+
   slideElements.forEach((element) => (element.style.order = ''));
   activeSlideElement.classList.remove('slider-item-active');
   activeSlideElement.style.order = `${slidesAmount}`;
